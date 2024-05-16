@@ -1,0 +1,50 @@
+[package]
+name = "hubble-bridge-protocol"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+shell-sdk = { git = "https://github.com/webb-tools/gadget" }
+gadget-common = { git = "https://github.com/webb-tools/gadget" }
+protocol-macros = { git = "https://github.com/webb-tools/gadget" }
+gadget-core = { git = "https://github.com/webb-tools/gadget" }
+
+tangle-primitives = { git = "https://github.com/webb-tools/tangle.git", branch = "main" }
+tokio = { version = "1.32.0", features = ["macros", "rt-multi-thread", "time", "net"] }
+
+async-trait = "0.1.73"
+log = "0.4.20"
+dfns-cggmp21 = { package = "cggmp21", git = "https://github.com/dfns/cggmp21",  features = ["all-curves", "hd-wallets"]}
+round-based-21 = { package = "round-based", version = "0.2.1" }
+futures = "0.3.30"
+itertools = "0.12.0"
+digest = "0.10"
+
+sp-core = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.7.0", features = ["std"] }
+sp-io = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.7.0", features = ["std"] }
+
+
+frame-support = { git = "https://github.com/paritytech/polkadot-sdk", branch = "release-polkadot-v1.7.0" }
+parity-scale-codec = "3.6.5"
+
+serde = "1.0.188"
+serde_json = "1.0"
+rand = "0.8.5"
+rand_core = "0.6"
+hex = "0.4.3"
+parking_lot = "0.12.1"
+sha2 = "0.10.8"
+derivation-path = "0.2.0"
+signature = "2.2.0"
+k256 = { verison = "0.13.2", features = ["arithmetic"] }
+
+secp256k1 = { version = "0.28.2", features = ["global-context"] }
+p256 = { verison = "0.13.2", features = ["arithmetic", "ecdsa"] }
+starknet-crypto = "0.6.1"
+
+[dev-dependencies]
+test-utils = { git = "https://github.com/webb-tools/gadget" }
+
+[[bin]]
+name = "protocol"
+path = "src/main.rs"
